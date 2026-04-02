@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beets, Limes & Rice</title>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Russo+One&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* Hero / Header */
+  .hero {
+    background: linear-gradient(135deg, #1a0a2e 0%, #16213e 40%, #0f3460 100%);
+    padding: 60px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 6px solid #f5c518;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(245,197,24,0.03) 60px, rgba(245,197,24,0.03) 61px),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(245,197,24,0.03) 60px, rgba(245,197,24,0.03) 61px);
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .site-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4.5rem;
+    color: #f5c518;
+    text-shadow: 4px 4px 0 #e91e63, 8px 8px 0 rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.1rem;
+    color: #e91e63;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 18px;
+  }
+
+  .author-line {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .boombox-row {
+    font-size: 2rem;
+    margin-top: 16px;
+    letter-spacing: 12px;
+    opacity: 0.25;
+  }
+
+  /* Nav bar */
+  .nav-bar {
+    background: #111;
+    border-bottom: 3px solid #e91e63;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 14px 0;
+    font-family: 'Russo One', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  .nav-bar a {
+    color: #f5c518;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-bar a:hover { color: #e91e63; }
+
+  /* Main content */
+  .main-content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 50px 24px 80px;
+  }
+
+  /* Restaurant header card */
+  .restaurant-header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid #f5c518;
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .restaurant-header::after {
+    content: '';
+    position: absolute;
+    top: -2px; right: -2px;
+    width: 80px; height: 80px;
+    background: #f5c518;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+
+  .restaurant-name {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.8rem;
+    color: #f5c518;
+    margin-bottom: 8px;
+  }
+
+  .restaurant-vibe {
+    font-family: 'Russo One', sans-serif;
+    color: #e91e63;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+
+  .restaurant-desc {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* Section title */
+  .section-title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.6rem;
+    color: #e91e63;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgba(245,197,24,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title .icon { font-size: 1.4rem; }
+
+  /* Review cards */
+  .review-card {
+    background: #141420;
+    border-left: 4px solid #f5c518;
+    border-radius: 0 8px 8px 0;
+    padding: 30px 32px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .review-card:nth-child(odd) {
+    border-left-color: #e91e63;
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .reviewer-name {
+    font-family: 'Russo One', sans-serif;
+    font-size: 1rem;
+    color: #f5c518;
+  }
+
+  .review-date {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Press Start 2P', monospace;
+    letter-spacing: 1px;
+  }
+
+  .stars {
+    color: #f5c518;
+    font-size: 1rem;
+    margin-bottom: 14px;
+    letter-spacing: 3px;
+  }
+
+  .review-text {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  .review-text::before {
+    content: '\201C';
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2.5rem;
+    color: rgba(245,197,24,0.2);
+    position: absolute;
+    left: 16px;
+    top: 14px;
+  }
+
+  /* Tape cassette divider */
+  .tape-divider {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 8px;
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  /* Footer */
+  .footer {
+    background: #111;
+    border-top: 3px solid #f5c518;
+    text-align: center;
+    padding: 30px 20px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .footer .gold { color: #f5c518; }
+
+  /* Ticker strip */
+  .ticker {
+    background: #e91e63;
+    color: #fff;
+    font-family: 'Russo One', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: 8px 0;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  Real talk on real eats &mdash; no cap, no reservations (literally) &mdash; Beets, Limes &amp; Rice since '94
+</div>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="site-title">Beets, Limes<br>& Rice</div>
+    <div class="tagline">Food Reviews Straight Outta the Kitchen</div>
+    <div class="author-line">Written by Todd</div>
+    <div class="boombox-row">. . . . . . . . . . .</div>
+  </div>
+</header>
+
+<nav class="nav-bar">
+  <a href="#">Reviews</a>
+  <a href="#">The Menu</a>
+  <a href="#">Top 5</a>
+  <a href="#">About Todd</a>
+  <a href="#">Contact</a>
+</nav>
+
+<main class="main-content">
+
+  <div class="restaurant-header">
+    <div class="restaurant-name">Sunday Sauce</div>
+    <div class="restaurant-vibe">Italian &bull; No Reservations &bull; Worth the Hype?</div>
+    <p class="restaurant-desc">
+      Everybody's been talking about Sunday Sauce. The red sauce joint that's been blowing up
+      the food scene like a Biggie verse on a Friday night. Todd sent the crew out to see
+      what the deal is. Here's the unfiltered word from the street.
+    </p>
+  </div>
+
+  <div class="section-title">
+    <span class="icon">&#127908;</span> The Reviews
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Todd</span>
+      <span class="review-date">03.22.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+    <p class="review-text">
+      I tried to go to Sunday Sauce once, they don't take reservations and it was like 1.5 hrs wait at 8:30.
+    </p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Todd</span>
+      <span class="review-date">03.29.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9734;&#9734;&#9734;</div>
+    <p class="review-text">
+      Uhh honestly I forget, I think one of my friends just didn't vibe with it.
+    </p>
+  </div>
+
+  <div class="tape-divider">&#9654; &#9654; SIDE B &mdash; MORE REVIEWS COMING SOON &#9654; &#9654;</div>
+
+</main>
+
+<footer class="footer">
+  <span class="gold">Beets, Limes &amp; Rice</span> &copy; 2026 &mdash; All rights reserved<br><br>
+  "If you don't know, now you know" &mdash; where to eat
+</footer>
+
+</body>
+</html>
