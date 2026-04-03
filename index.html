@@ -63,6 +63,15 @@
     text-transform: uppercase;
   }
 
+  .subtitle-line {
+    font-family: 'Russo One', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
   .boombox-row {
     font-size: 2rem;
     margin-top: 16px;
@@ -103,7 +112,7 @@
     border: 2px solid #f5c518;
     border-radius: 8px;
     padding: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     position: relative;
     overflow: hidden;
   }
@@ -115,6 +124,17 @@
     width: 80px; height: 80px;
     background: #f5c518;
     clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+
+  .restaurant-header.rip {
+    border-color: #555;
+    opacity: 0.85;
+  }
+  .restaurant-header.rip::after {
+    background: #555;
+  }
+  .restaurant-header.rip .restaurant-name {
+    color: #999;
   }
 
   .restaurant-name {
@@ -137,6 +157,14 @@
     color: rgba(255,255,255,0.7);
     line-height: 1.7;
     font-size: 0.95rem;
+  }
+
+  .restaurant-address {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.55rem;
+    color: rgba(255,255,255,0.3);
+    margin-top: 14px;
+    letter-spacing: 1px;
   }
 
   /* Section title */
@@ -215,11 +243,89 @@
   /* Tape cassette divider */
   .tape-divider {
     text-align: center;
-    margin: 50px 0;
+    margin: 55px 0;
     font-size: 0.7rem;
     color: rgba(255,255,255,0.15);
     letter-spacing: 8px;
     font-family: 'Press Start 2P', monospace;
+  }
+
+  /* On the Radar section */
+  .radar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .radar-card {
+    background: #141420;
+    border: 1px solid rgba(245,197,24,0.15);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .radar-card .name {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.3rem;
+    color: #f5c518;
+    margin-bottom: 6px;
+  }
+
+  .radar-card .vibe {
+    font-family: 'Russo One', sans-serif;
+    font-size: 0.65rem;
+    color: #e91e63;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+
+  .radar-card .blurb {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* RIP / Gone section */
+  .rip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .rip-entry {
+    background: #141420;
+    border-left: 4px solid #555;
+    border-radius: 0 8px 8px 0;
+    padding: 22px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rip-entry .rip-info .name {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 4px;
+  }
+
+  .rip-entry .rip-info .quote {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .rip-entry .rip-tag {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-left: 16px;
   }
 
   /* Footer */
@@ -255,7 +361,7 @@
 <body>
 
 <div class="ticker">
-  Real talk on real eats &mdash; no cap, no reservations (literally) &mdash; Beets, Limes &amp; Rice since '94
+  Real talk on real eats &mdash; Portland edition &mdash; no cap, no reservations (literally) &mdash; Beets, Limes &amp; Rice since '94
 </div>
 
 <header class="hero">
@@ -263,6 +369,7 @@
     <div class="site-title">Beets, Limes<br>& Rice</div>
     <div class="tagline">Food Reviews Straight Outta the Kitchen</div>
     <div class="author-line">Written by Todd</div>
+    <div class="subtitle-line">Portland's Realest Food Blog</div>
     <div class="boombox-row">. . . . . . . . . . .</div>
   </div>
 </header>
@@ -276,6 +383,8 @@
 </nav>
 
 <main class="main-content">
+
+  <!-- ==================== SUNDAY SAUCE ==================== -->
 
   <div class="restaurant-header">
     <div class="restaurant-name">Sunday Sauce</div>
@@ -313,7 +422,184 @@
     </p>
   </div>
 
-  <div class="tape-divider">&#9654; &#9654; SIDE B &mdash; MORE REVIEWS COMING SOON &#9654; &#9654;</div>
+  <div class="tape-divider">&#9654; &#9654; FLIP THE TAPE &#9654; &#9654;</div>
+
+  <!-- ==================== GABBIANOS ==================== -->
+
+  <div class="restaurant-header">
+    <div class="restaurant-name">Gabbianos</div>
+    <div class="restaurant-vibe">Italian &bull; Authentic &bull; On Message</div>
+    <p class="restaurant-desc">
+      When you want Italian that's Italian-Italian and not just vibes-Italian, Gabbianos is
+      where you pull up. More clearly on message than most of the red sauce competition.
+      This is the spot when you're trying to impress somebody's nonna.
+    </p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Todd</span>
+      <span class="review-date">04.03.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+    <p class="review-text">
+      As Italian qua Italian, Gabbianos is more clearly on message.
+    </p>
+  </div>
+
+  <div class="tape-divider">&#9654; &#9654; SIDE B &#9654; &#9654;</div>
+
+  <!-- ==================== GRASSA ==================== -->
+
+  <div class="restaurant-header">
+    <div class="restaurant-name">Grassa</div>
+    <div class="restaurant-vibe">Italian &bull; Quick To-Go &bull; Certified Classic</div>
+    <p class="restaurant-desc">
+      You need pasta and you need it now? Grassa's the answer and the whole crew agrees.
+      No debate, no deliberation. This is the consensus pick &mdash; the Wu-Tang of quick Italian.
+    </p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Emily</span>
+      <span class="review-date">04.03.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">
+      For quick to-go Italian... I still love Grassa.
+    </p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Ben</span>
+      <span class="review-date">04.03.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <p class="review-text">
+      Oh yeah. Grassa is fantastic.
+    </p>
+  </div>
+
+  <div class="tape-divider">&#9654; &#9654; THE BONUS TRACKS &#9654; &#9654;</div>
+
+  <!-- ==================== GUMBA ==================== -->
+
+  <div class="restaurant-header">
+    <div class="restaurant-name">Gumba</div>
+    <div class="restaurant-vibe">Italian &bull; Veg-Friendly &bull; New Location on Alberta</div>
+    <p class="restaurant-desc">
+      Gumba just moved to a new spot on Alberta &mdash; the old Bonne Chance location (RIP, more
+      on that below). If you're rolling with vegans or vegetarians, this is the move. Limited
+      options but everything hits. Don't sleep on this one.
+    </p>
+    <div class="restaurant-address">2203 NE Alberta St., Portland, OR 97211</div>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Meghan</span>
+      <span class="review-date">04.03.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+    <p class="review-text">
+      Gumba is great if you have any vegans/vegetarians that you're eating with. Their options are limited but everything I have tried has been really good.
+    </p>
+  </div>
+
+  <div class="review-card">
+    <div class="review-header">
+      <span class="reviewer-name">Amber</span>
+      <span class="review-date">04.03.2026</span>
+    </div>
+    <div class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+    <p class="review-text">
+      I've had them on my list since they opened but I think, in the beginning, they didn't have a lot of veg/vegan options. Good to know that's changed &mdash; my partner is vegetarian.
+    </p>
+  </div>
+
+  <div class="tape-divider">&#9654; &#9654; ON THE RADAR &#9654; &#9654;</div>
+
+  <!-- ==================== ON THE RADAR ==================== -->
+
+  <div class="section-title">
+    <span class="icon">&#128225;</span> On the Radar
+  </div>
+
+  <div class="radar-grid">
+    <div class="radar-card">
+      <div class="name">Hey, Luigi</div>
+      <div class="vibe">Italian &bull; Unconfirmed Hype</div>
+      <p class="blurb">Ben's heard really good things but hasn't been yet. We're sending a scout. Stay tuned.</p>
+    </div>
+    <div class="radar-card">
+      <div class="name">L'Echelle</div>
+      <div class="vibe">SE Portland &bull; Mystery</div>
+      <p class="blurb">Todd is "v interested" but can never bring himself to cross Burnside to SE. If you've been, holler at the blog.</p>
+    </div>
+  </div>
+
+  <div class="tape-divider">&#9654; &#9654; POUR ONE OUT &#9654; &#9654;</div>
+
+  <!-- ==================== RIP / GONE BUT NOT FORGOTTEN ==================== -->
+
+  <div class="section-title">
+    <span class="icon">&#127482;</span> Gone But Not Forgotten
+  </div>
+
+  <p style="color: rgba(255,255,255,0.45); margin-bottom: 28px; line-height: 1.7; font-size: 0.95rem;">
+    Every city's got its fallen soldiers. These Portland spots are gone and we're still not over it.
+    As Ben put it: "Ataula. Expat. Beast." &mdash; Top 5 biggest losses. Frfr.
+  </p>
+
+  <div class="rip-list">
+    <div class="rip-entry">
+      <div class="rip-info">
+        <div class="name">Expat</div>
+        <div class="quote">"Expat is the biggest loss." &mdash; Ben</div>
+      </div>
+      <div class="rip-tag">R.I.P.</div>
+    </div>
+    <div class="rip-entry">
+      <div class="rip-info">
+        <div class="name">Bonne Chance</div>
+        <div class="quote">"Bonne Chance was so good." &mdash; Ben</div>
+      </div>
+      <div class="rip-tag">R.I.P.</div>
+    </div>
+    <div class="rip-entry">
+      <div class="rip-info">
+        <div class="name">Ataula</div>
+        <div class="quote">Top 5 loss list &mdash; Ben</div>
+      </div>
+      <div class="rip-tag">R.I.P.</div>
+    </div>
+    <div class="rip-entry">
+      <div class="rip-info">
+        <div class="name">Beast</div>
+        <div class="quote">Top 5 loss list &mdash; Ben</div>
+      </div>
+      <div class="rip-tag">R.I.P.</div>
+    </div>
+    <div class="rip-entry">
+      <div class="rip-info">
+        <div class="name">Radar</div>
+        <div class="quote">"Radar was a gem." &mdash; Ben</div>
+      </div>
+      <div class="rip-tag">R.I.P.</div>
+    </div>
+  </div>
+
+  <div class="review-card" style="border-left-color: #555;">
+    <div class="review-header">
+      <span class="reviewer-name" style="color: #888;">Todd</span>
+      <span class="review-date">04.03.2026</span>
+    </div>
+    <p class="review-text" style="color: rgba(255,255,255,0.5);">
+      I never went to Bonne Chance because Wilder &amp; Expat were also in the neighborhood. Then Expat &amp; Bonne Chance closed within two weeks and now I'm never having cocktails again.
+    </p>
+  </div>
 
 </main>
 
